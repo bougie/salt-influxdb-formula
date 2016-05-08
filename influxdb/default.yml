@@ -1,0 +1,23 @@
+{% load_yaml as lookup %}
+FreeBSD:
+    package: influxdb
+    service: influxdb
+    config_file: /usr/local/etc/influxdb.conf.sample
+Debian:
+    repo_url: "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" 
+    repo_file: /etc/apt/sources.list.d/influxdb.list
+    gpg_url: "https://repos.influxdata.com/influxdb.key"
+    package: influxdb
+    service: influxdb
+    config_file: /etc/influxdb/influxdb.conf.sample
+CentOS:
+    repo_url: "https://repos.influxdata.com/rhel/$releasever/$basearch/stable" 
+    repo_file: /etc/yum.repos.d/influxdb.repo
+    gpg_url: "https://repos.influxdata.com/influxdb.key"
+    package: influxdb
+    service: influxdb
+    config_file: /etc/influxdb/influxdb.conf.sample
+{% endload %}
+
+{% load_yaml as rawmap %}
+{% endload %}
